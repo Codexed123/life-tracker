@@ -20,6 +20,6 @@ from life_tracker_content.views import ActivityList, default_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("activities/", ActivityList.as_view()),
+    path("", ActivityList.as_view()),
     path("home/", default_page, name="default"),
 ]
