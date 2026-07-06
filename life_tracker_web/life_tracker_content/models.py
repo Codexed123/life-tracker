@@ -1,5 +1,4 @@
 from django.db import models
-from django.auth.contrib.models import AbstractUser
 # Create your models here.
 
 class ActivitySerializer(models.Model):
@@ -7,8 +6,4 @@ class ActivitySerializer(models.Model):
     description = models.CharField(max_length=100)
     completed = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now=True)
-
-class CustomUser(AbstractUser):
-    email = models.EmailField()
-    age = IntegerField()
 
