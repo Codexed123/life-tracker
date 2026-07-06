@@ -1,5 +1,5 @@
 from django.db import models
-from django.auth.contrib.models impot AbstractUser
+from django.auth.contrib.models import AbstractUser
 # Create your models here.
 
 class ActivitySerializer(models.Model):
