@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rnb&r6u(hi0no00my%q7h7_a+s0oky(#@w91glbq%r1-%fibfb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['life-tracker-6h3l.onrender.com']
 
 
 # Application definition
