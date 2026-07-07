@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    :root {
+    /* Colors */
+    --bg: radial-gradient(circle, #000000 0%, #080808 100%);
+    --header-bg: black;
+    --card-bg: #111;
+    --card-hover: #1a1a1a;
+
+    /* Text */
+    --text: white;
+
+    /* Spacing */
+    --gap: 20px;
+    --header-height: 50px;
+
+    /* Fonts */
+    --font: monospace;
+
+    /* Radius */
+    --radius: 15px;
+    }
+    body{
+        background-color: var(--header-bg);
+        color: var(--text);
+        font-family: var(--font);
+    }
+    .main_box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        gap: 10px;
+        flex-direction: column;
+        background-color: var(--card-bg);
+        height: 400px;
+        width: 600px;
+        text-align: center;
+        margin: auto;
+    }
+    header {
+    background-color: var(--header-bg);
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* LINKS */
+.h_a1 {
+    text-decoration: none;
+    color: var(--text);
+    margin-left: 20px;
+}
+
+.main_nav a {
+    margin-right: 20px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.field_1{
+    margin-bottom: 5px;
+    height: 20px;
+    border-radius: 10px;
+
+}
+.field_2{
+    height: 20px;
+    border-radius: 20px;
+}
+.submit_btn{
+    background-color: rgb(179, 179, 179);
+    font-family: var(--font);
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    color: var(--text);
+    margin-top: 10px;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background-color 0.3s ease;
+    color: black;
+}
+.submit_btn:hover{
+    transform: translateY(4px);
+    color: gray;
+}
+.main_text{
+    font-family: monospace;
+    margin-bottom: 10px;
+}
+
+.main_nav a {
+    margin-right: 20px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+/* MAIN */
+.main_div {
+    color: var(--text);
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* FOOTER SECTION */
+.main_end {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    margin-top: 100px;
+}
+
+.main_end .main_left {
+    background-color: #0a0a0a;
+    width: 100%;
+}
+
+/* LIST */
+.main_list_left {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+    justify-content: center;
+    height: 100px;
+}
+
+.main_list_left a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font);
+}
+#alert{
+    color: green;
+}
+</style>
+<body>
+    <header>
+        <a href="#" class="h_a1">Life-Tracker</a>
+        <nav class="main_nav">
+            <a href="{% url 'signup'%}">Signup</a>
+            <a href="{% url 'login'%}">Login</a>
+            <a href="#">Settings</a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <div class="main_box">
+        {% if messages %}
+            {% for message in messages %}
+                <p><span id="alert">{{ message }}</span></p>
+            {% endfor %}
+        {% endif %}
+        <h1 class="main_text">L O G I N</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit_btn">Submit</button>
+        </form>
+    </div>
+    <footer class="main_end">
+        <div class="main_left">
+            <ul class="main_list_left"">
+                <a href="https://youtube.com" target="_blank">
+    <i class="fa-brands fa-youtube"></i>
+Youtube</a>
+                <a href="https://facebook.com" target="_blank">
+    <i class="fa-brands fa-facebook"></i>
+Facebook</a>
+<a href="https://github.com">
+        <i class="fa-brands fa-github"></i>
+    Github</a>
+    <a href="https://www.linkedin.com/in/yourusername" target="_blank">
+    <i class="fa-brands fa-linkedin"></i>
+LinkedIn</a>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        const some = document.getElementById('alert');
+        function disappear(){
+            some.remove();
+            some = null;
+        }
+        setInterval(disappear, 3000);
+    </script>
+</body>
+</html>
